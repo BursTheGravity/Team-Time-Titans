@@ -111,6 +111,23 @@ public class OrderedArrayList {
 		}
 
 
+    // findBin()
+    public int finBin(int newVal, int lo, int hi) {
+	if (lo < hi) {
+	    int med = (lo / 2) + (hi / 2);
+	    int comp = _data[med].compareTo(newVal);
+	    if (comp < 0) {
+		return binarySearch(newVal, lo, med - 1);}
+	    if (comp > 0) {
+		return binarySearch(newVal,  med + 1, hi);}
+	    return med;
+	}
+	return -1; //covers appending first digit 
+    } // binarySearch
+
+
+
+
     // main method solely for testing purposes
     public static void main( String[] args ) 
     {
