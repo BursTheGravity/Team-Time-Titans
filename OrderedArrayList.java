@@ -183,9 +183,11 @@ public class OrderedArrayList {
 		    //Tests findLin time 
 		    System.out.println( "Testing time required for findLin(" + valToTest + "): " );
 		    long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
-		    System.out.println( "Time start:\t" + startLin );
 		    Titan.findLin(valToTest); //executes findLin
 		    long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
+		    
+		    //prints out times
+		    System.out.println( "Time start:\t" + startLin );
 		    System.out.println( "Time end:\t" + endLin );
 		
 		    System.out.println( "Total time required: " + (endLin - startLin) + " milliseconds." ); //calculates the difference, which is the amount of time required
@@ -195,9 +197,11 @@ public class OrderedArrayList {
 		    //Tests findBin time
 		    System.out.println( "Testing time required for findBin(" + valToTest + "): " );
 		    long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
-		    System.out.println( "Time start:\t" + startBin );
 		    Titan.findBinR(valToTest); //executes findBin
 		    long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
+		    
+		    //prints out times
+		    System.out.println( "Time start:\t" + startBin );
 		    System.out.println( "Time end:\t" + endBin );
 		
 		    System.out.println( "Total time required: " + (endBin - startBin) + " milliseconds." ); //calculates the difference, which is the amount of time required
