@@ -132,6 +132,7 @@ public class OrderedArrayList {
     // main method solely for testing purposes
     public static void main( String[] args ) 
     {
+    	/*
 	OrderedArrayList Franz = new OrderedArrayList();
 	
 	System.out.println("\nValues to add via addLinear() calls:");
@@ -142,11 +143,11 @@ public class OrderedArrayList {
 	    System.out.println( valToAdd );
 	    Franz.addLinear( valToAdd );
 	}
-	/*
+	
 	System.out.println("\nafter population via addLinear() calls:");
 	System.out.println( Franz );
 	System.out.println();
-	*/
+	
 	Franz = new OrderedArrayList();
 	
 	System.out.println("\nValues to add via addBinary() calls:");
@@ -158,38 +159,41 @@ public class OrderedArrayList {
 	    System.out.println( valToAdd );
 	    Franz.addBinary( valToAdd );
 	}
-	/*	
+	
 	System.out.println("\nafter population via addBinary() calls:");
 	System.out.println( Franz );
 	System.out.println();
 	*/
-	//timing apparatus
 	
-	
-
-	// Timing-apparatus
-	// Start time - end time = time of process
-	System.out.println("Starting time trials");
-
-	
-	/*	
-	// search for items in array, no significant difference
-        for(int i = 0; i < Franz.size(); i++) {
-	    System.out.println("Searching for item " + Franz.get(i));
-	    long start = System.currentTimeMillis();	   
-	    Franz.findLin(i);
-	    long end = System.currentTimeMillis();
-	System.out.println("Took " + (end-start) + " milliseconds");
-        }
-	*/
-
-	// search for items in array
-        for(int i = 0; i < Franz.size(); i++) {
-	    System.out.println("Searching for item " + Franz.get(i));
-	    long start = System.currentTimeMillis();	   
-	    Franz.findLin(i);
-	    long end = System.currentTimeMillis();
-	System.out.println("Took " + (end-start) + " milliseconds");
+	//Experimentation with timing of findLin & findBin
+		System.out.println( "Starting Experimentation with timing of findLin & findBin\n" );
+		
+		//Adds 100,000 items to OrderedArrayList Titan
+		OrderedArrayList Titan = new OrderedArrayList();
+		for( int i = 0; i < 100000; i++ ) {
+			int valToAdd = (int)( 50 * Math.random() );
+			Titan.addLinear( valToAdd );
+		}
+		
+		//Tests findLin time
+		System.out.println( "Testing time required for findLin(25): " );
+		long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
+		System.out.println( "Time start:\t" + startLin );
+		Titan.findLin(25); //executes findLin
+		long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
+		System.out.println( "Time end:\t" + endLin );
+		System.out.println( "Total time required: " + (endLin - startLin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		System.out.println();
+		
+		//Tests findBin time
+		System.out.println( "Testing time required for findBin(25): " );
+		long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
+		System.out.println( "Time start:\t" + startBin );
+		Titan.findBin(25); //executes findBin
+		long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
+		System.out.println( "Time end:\t" + endBin );
+		System.out.println( "Total time required: " + (endBin - startBin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		System.out.println();
         }
 
     }
