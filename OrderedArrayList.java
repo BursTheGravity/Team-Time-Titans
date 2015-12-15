@@ -108,7 +108,8 @@ public class OrderedArrayList {
     
     // determine whether element present in data structure using binary search
     // return index of occurrence or -1 if not found
-    public int findBin( Comparable target ) {
+    // recursive versions
+    public int findBinR( Comparable target ) {
 	int lo = 0;
 	int med = 0;
 	int hi = _data.size()-1;
@@ -162,6 +163,18 @@ public class OrderedArrayList {
 	System.out.println( Franz );
 	System.out.println();
 	
+
+	// Timing-apparatus
+	// Start time - end time = time of process
+	int start = System.currentTimeMillis();
+	//testing linSearch
+	System.out.println(Franz);
+x	System.out.println();
+	System.out.println( findLin(1));
+	int end = System.currentTimeMillis();
+	System.out.print("This experiment shows alot of function takes " + (end - star) + " milliseconds.");
+
+
 	/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	   INSERT WELL-COMMENT TIMING APPARATUS HERE
 	   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
