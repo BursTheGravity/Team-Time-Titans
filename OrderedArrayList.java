@@ -166,17 +166,18 @@ public class OrderedArrayList {
 	*/
 	
 	//Experimentation with timing of findLin & findBin
+	System.out.println();
 
 		//Adds 500,000 items to OrderedArrayList Titan
 		OrderedArrayList Titan = new OrderedArrayList();
 		for( int i = 0; i < 500000; i++ ) {
-			int valToAdd = (int)( 1000 * Math.random() );
+			int valToAdd = (int)( 10000 * Math.random() );
 			Titan.addBinary( valToAdd );
 		}
 		int sizeTitan = Titan.size();
 		System.out.println( "Starting timing experimentation of findLin & findBin for " + sizeTitan + " items in OAL." );
 		
-		int valToTest = (int)( 1000 * Math.random() ); //create some random value in same range as numbers in OAL
+		int valToTest = (int)( 10000 * Math.random() ); //create some random value in same range as numbers in OAL
 		
 		//Tests findLin time
 		System.out.println( "Testing time required for findLin(" + valToTest + "): " );
