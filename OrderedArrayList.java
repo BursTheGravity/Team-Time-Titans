@@ -177,7 +177,7 @@ public class OrderedArrayList {
 		System.out.println( "Starting timing experimentation of findLin & findBin for " + sizeTitan + " items in OAL." );
 
 		int cnt = 0;
-		while( cnt < 5 ) {
+		while( cnt < 10 ) {
 		    int valToTest = (int)( 100000 * Math.random() ); //create some random value in same range as numbers in OAL
 		
 		    //Tests findLin time 
@@ -187,6 +187,7 @@ public class OrderedArrayList {
 		    long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
 		    
 		    //prints out times
+		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest);
 		    System.out.println( "Time start:\t" + startLin );
 		    System.out.println( "Time end:\t" + endLin );
 		
@@ -201,6 +202,7 @@ public class OrderedArrayList {
 		    long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
 		    
 		    //prints out times
+		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest);
 		    System.out.println( "Time start:\t" + startBin );
 		    System.out.println( "Time end:\t" + endBin );
 		

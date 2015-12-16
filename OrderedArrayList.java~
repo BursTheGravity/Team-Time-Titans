@@ -79,7 +79,7 @@ public class OrderedArrayList {
 	
 	while ( lo <= hi ) { //running until target is found or bounds cross
 	    
-	    med = (lo + hi) / 2;
+	    med = (int)((lo + hi) / 2);
 	    int x = _data.get(med).compareTo( newVal );
 	    
 	    if ( x == 0 ) { //equal value found, insert here
@@ -111,18 +111,17 @@ public class OrderedArrayList {
     // recursive versions
     public int findBinR( Comparable target ) {
 	int lo = 0;
-	int med = 0;
 	int hi = _data.size()-1;
 	return findBinH( target, lo,  hi);
     }	
     
     public int findBinH( Comparable target, int lo, int hi){
 	if (lo < hi) {
-	    int med = (lo / 2) + (hi / 2);
+	    int med = (int)((lo + hi) / 2);
 	    int comp = _data.get(med).compareTo(target);
-	    if (comp < 0) {
-		return findBinH(target, lo, med - 1);}
 	    if (comp > 0) {
+		return findBinH(target, lo, med - 1);}
+	    if (comp < 0) {
 		return findBinH(target, med + 1, hi);}
 	    return med;
 	}
@@ -171,38 +170,46 @@ public class OrderedArrayList {
 		//Adds 500,000 items to OrderedArrayList Titan
 		OrderedArrayList Titan = new OrderedArrayList();
 		for( int i = 0; i < 500000; i++ ) {
-			int valToAdd = (int)( 10000 * Math.random() );
+			int valToAdd = (int)( 100000 * Math.random() );
 			Titan.addBinary( valToAdd );
 		}
 		int sizeTitan = Titan.size();
 		System.out.println( "Starting timing experimentation of findLin & findBin for " + sizeTitan + " items in OAL." );
-		
-		int valToTest = (int)( 10000 * Math.random() ); //create some random value in same range as numbers in OAL
-		
-		//Tests findLin time
-		System.out.println( "Testing time required for findLin(" + valToTest + "): " );
-		long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
-		System.out.println( "Time start:\t" + startLin );
-		Titan.findLin(valToTest); //executes findLin
-		long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
-		System.out.println( "Time end:\t" + endLin );
-		
-		System.out.println( "Total time required: " + (endLin - startLin) + " milliseconds." ); //calculates the difference, which is the amount of time required
-		System.out.println();
-		
-		//Tests findBin time
-		System.out.println( "Testing time required for findBin(" + valToTest + "): " );
-		long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
-		System.out.println( "Time start:\t" + startBin );
-		Titan.findBin(valToTest); //executes findBin
-		long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
-		System.out.println( "Time end:\t" + endBin );
-		
-		System.out.println( "Total time required: " + (endBin - startBin) + " milliseconds." ); //calculates the difference, which is the amount of time required
-		System.out.println();
-        }
 
+		int cnt = 0;
+		while( cnt < 10 ) {
+		    int valToTest = (int)( 100000 * Math.random() ); //create some random value in same range as numbers in OAL
+		
+		    //Tests findLin time 
+		    System.out.println( "Testing time required for findLin(" + valToTest + "): " );
+		    long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
+		    Titan.findLin(valToTest); //executes findLin
+		    long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
+		    
+		    //prints out times
+		    System.out.println( "Time start:\t" + startLin );
+		    System.out.println( "Time end:\t" + endLin );
+		
+		    System.out.println( "Total time required: " + (endLin - startLin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		    System.out.println();
+		   
+		
+		    //Tests findBin time
+		    System.out.println( "Testing time required for findBin(" + valToTest + "): " );
+		    long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
+		    Titan.findBinR(valToTest); //executes findBin
+		    long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
+		    
+		    //prints out times
+		    System.out.println( "Time start:\t" + startBin );
+		    System.out.println( "Time end:\t" + endBin );
+		
+		    System.out.println( "Total time required: " + (endBin - startBin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		    System.out.println();
+
+		    cnt++;
+			}		
     }
-    
+   
 }//end class OrderedArrayList
 
