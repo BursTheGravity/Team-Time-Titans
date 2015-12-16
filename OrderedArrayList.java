@@ -202,7 +202,7 @@ public class OrderedArrayList {
 		    long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
 		    
 		    //prints out times
-		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest););
+		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest));
 		    System.out.println( "Time start:\t" + startBin );
 		    System.out.println( "Time end:\t" + endBin );
 		
