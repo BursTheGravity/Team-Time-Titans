@@ -182,31 +182,35 @@ public class OrderedArrayList {
 		
 		    //Tests findLin time 
 		    System.out.println( "Testing time required for findLin(" + valToTest + "): " );
-		    long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
+		    long startLin = System.nanoTime();
+		    //long startLin = System.currentTimeMillis(); //stores the start time for start of findLin
 		    Titan.findLin(valToTest); //executes findLin
-		    long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
+		    long endLin = System.nanoTime();
+		    //long endLin = System.currentTimeMillis(); //stores the end time for end of findLin
 		    
 		    //prints out times
-		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest));
+		    System.out.println( "Searched value index:\t" + Titan.findLin(valToTest));
 		    System.out.println( "Time start:\t" + startLin );
 		    System.out.println( "Time end:\t" + endLin );
 		
-		    System.out.println( "Total time required: " + (endLin - startLin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		    System.out.println( "Total time required: " + (endLin - startLin) + " nanoseconds." ); //calculates the difference, which is the amount of time required
 		    System.out.println();
 		   
 		
 		    //Tests findBin time
 		    System.out.println( "Testing time required for findBin(" + valToTest + "): " );
-		    long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
+		    long startBin = System.nanoTime();    
+		    // long startBin = System.currentTimeMillis(); //stores the start time for start of findBin
 		    Titan.findBinR(valToTest); //executes findBin
-		    long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
+		    long endBin = System.nanoTime();
+		    //long endBin = System.currentTimeMillis(); //stores the end time for end of findBin
 		    
 		    //prints out times
-		    System.out.println( "Searched value:\t" + Titan.findLin(valToTest));
+		    System.out.println( "Searched value index:\t" + Titan.findLin(valToTest));
 		    System.out.println( "Time start:\t" + startBin );
 		    System.out.println( "Time end:\t" + endBin );
 		
-		    System.out.println( "Total time required: " + (endBin - startBin) + " milliseconds." ); //calculates the difference, which is the amount of time required
+		    System.out.println( "Total time required: " + (endBin - startBin) + " nanoseconds." ); //calculates the difference, which is the amount of time required
 		    System.out.println();
 
 		    cnt++;
